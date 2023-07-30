@@ -5,18 +5,20 @@ function PopupWithForm(props) {
   console.log(props.isOpen);
     return (
         <div className={`popup ${props.isOpen ? 'popup_opened' : ''}`}>
-        <div className="popup__container popup__container_default">
-          <form className={`popup__form popup__form_type_${props.name}`} name={props.name} noValidate>
-            <h2 className="popup__container-heading">{props.title}</h2>
-            {props.children}
-            <button className="popup__container-button popup__container-button_type_save" type="submit">
-            Сохранить
-            </button>
-            <button onClick={props.onClose} className="popup__close-button" type="button">
-            <img src={close} alt="закрыть" className="popup__close-image" />
-            </button>
-          </form>
-        </div>
+          <div className="popup__container popup__container_default">
+            <form className={`popup__form popup__form_type_${props.name}`} name={props.name} noValidate>
+              <h2 className="popup__container-heading">
+                {props.title}
+              </h2>
+              {props.children}
+              <button className="popup__container-button popup__container-button_type_save" type="submit">
+                Сохранить
+              </button>
+              <button onClick={props.onClose} className="popup__close-button" type="button">
+                <img src={close} alt="закрыть" className="popup__close-image" />
+              </button>
+            </form>
+          </div>
         </div>
     );
 }

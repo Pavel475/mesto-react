@@ -8,7 +8,12 @@ function Card(props) {
 
     return (
         <li className="element">
-            <img src={props.link} className="element__mask-group" onClick={handleClick} />
+            <img
+            src={props.link}
+            className="element__mask-group"
+            onClick={handleClick}
+            alt={props.name}
+            />
             <div className="element__info">
                 <h2 className="element__text">
                     {props.name}

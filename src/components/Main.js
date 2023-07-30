@@ -44,12 +44,17 @@ function Main(props) {
             <section className="profile">
                 <div className="profile__image">
                     <img src={userAvatar} alt="Тут должна быть ваша аватарка" className="profile__avatar" />
-                    <img onClick={props.onEditAvatar} src={pen} className="profile__pen" />
+                    <img
+                    onClick={props.onEditAvatar}
+                    src={pen}
+                    className="profile__pen"
+                    alt='редактировать'
+                    />
                 </div>
                 <div className="profile__info">
                     <h1 className="profile__title">{userName}</h1>
                     <button onClick={props.onEditProfile} className="profile__edit-button" type="button">
-                        <img className="profile__edit-image" alt="кнопка с карандашем" src={pen} />
+                        <img className="profile__edit-image" alt="редактировать" src={pen} />
                     </button>
                     <p className="profile__subtitle">{userDescription}</p>
                 </div>
@@ -61,7 +66,14 @@ function Main(props) {
                 <ul className="elements-list">
                     {
                         cards.map((card) => (
-                            <Card key={card.id} likes={card.likes} link={card.link} name={card.name} card={card} onCardClick={props.onCardClick} />
+                            <Card
+                            key={card.id}
+                            likes={card.likes}
+                            link={card.link}
+                            name={card.name}
+                            card={card}
+                            onCardClick={props.onCardClick}
+                            />
                         ))
                     }
                 </ul>

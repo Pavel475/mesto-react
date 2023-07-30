@@ -3,4 +3,5 @@
     -o-object-fit: cover;
        object-fit: cover;
     width: 100%;
+    margin-bottom: 10px;
 }
