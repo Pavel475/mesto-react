@@ -43,19 +43,19 @@ function App() {
       <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} />
       <Footer />
       <PopupWithForm title='Обновить аватар' name='avatar-form' isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} children >
-        <input className="popup__input popup__input_type_link" id="url-input-avatar" autoComplete="off" name="avatar" type="url" placeholder="Ссылка на картинку" required defaultValue="" />
+        <input className="popup__input" id="url-input-avatar" autoComplete="off" name="avatar" type="url" placeholder="Ссылка на картинку" required defaultValue="" />
         <span className="popup__error url-input-avatar-error"></span>
       </PopupWithForm>
       <PopupWithForm title='Редактировать профиль' name='edit-form' isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} children >
-        <input className="popup__input popup__input_type_nickname" id="text-input-name" autoComplete="off" name="nickName" type="text" placeholder="Имя" required defaultValue="" minLength="2" maxLength="40" />
+        <input className="popup__input" id="text-input-name" autoComplete="off" name="nickName" type="text" placeholder="Имя" required defaultValue="" minLength="2" maxLength="40" />
         <span className="popup__error text-input-name-error"></span>
-        <input className="popup__input popup__input_type_info" id="text-input-information" autoComplete="off" name="info" type="text" placeholder="О себе" required defaultValue="" minLength="2" maxLength="200" />
+        <input className="popup__input" id="text-input-information" autoComplete="off" name="info" type="text" placeholder="О себе" required defaultValue="" minLength="2" maxLength="200" />
         <span className="popup__error text-input-information-error"></span>
       </PopupWithForm>
       <PopupWithForm title='Новое место' name='add-form' isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} children >
-        <input className="popup__input popup__input_type_title" id="text-input-title" autoComplete="off" name="name" type="text" placeholder="Название" required defaultValue="" minLength="2" maxLength="30" />
+        <input className="popup__input" id="text-input-title" autoComplete="off" name="name" type="text" placeholder="Название" required defaultValue="" minLength="2" maxLength="30" />
         <span className="popup__error text-input-title-error"></span>
-        <input className="popup__input popup__input_type_link" id="url-input" autoComplete="off" name="link" type="url" placeholder="Ссылка на картинку" required defaultValue="" />
+        <input className="popup__input" id="url-input" autoComplete="off" name="link" type="url" placeholder="Ссылка на картинку" required defaultValue="" />
         <span className="popup__error url-input-error"></span>
       </PopupWithForm>
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
