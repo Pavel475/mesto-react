@@ -1,7 +1,23 @@
 import React from 'react';
 import trash from '../images/trash.svg';
+import { CurrentUserContext } from '../contexts/CurrentUserContext'
 
 function Card(props) {
+    const currentUser = React.useContext(CurrentUserContext);
+    const isOwn = props.card.owner._id === currentUser._id;
+    const isLiked = props.likes.some(i => i._id === currentUser._id);
+    const cardLikeButtonClassName = (
+        `element__group-button ${isLiked && 'element__group-button_active'}`
+    );
+
+    function handleDeleteClick() {
+        props.onCardDelete(props.card);
+    }
+
+    function handleLikeClick() {
+        props.onCardLike(props.card);
+    }
+
     function handleClick() {
         props.onCardClick(props.card);
     } 
@@ -19,16 +35,18 @@ function Card(props) {
                     {props.name}
                 </h2>
                 <div className="element__group">
-                    <button className="element__group-button" type="button">
+                    <button onClick={handleLikeClick} className={cardLikeButtonClassName} type="button">
                     </button>
                     <p className="element__group-text">
                         {props.likes.length}
                     </p>
                 </div>
             </div>
-            <button className="element__trash-button" type="reset">
+            {isOwn &&
+            <button onClick={handleDeleteClick} className="element__trash-button" type="reset">
                 <img src={trash} alt="удалить" className="element__trash-image" />
             </button>
+            }
         </li>
     );
 }
