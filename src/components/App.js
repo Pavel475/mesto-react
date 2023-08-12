@@ -47,14 +47,12 @@ function App() {
   }, [])
 
   function handleCardLike(card) {
-    console.log(card);
     // Снова проверяем, есть ли уже лайк на этой карточке
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, !isLiked)
     .then((newCard) => {
-      console.log(newCard);
       setCards((cards) => cards.map((c) => c._id === card._id ? newCard : c));
     })
     .catch((err) => {console.log(err)});
@@ -62,8 +60,7 @@ function App() {
 
   function handleCardDelete(card) {
     api.deleteCard(card._id)
-    .then((response) => {
-      console.log(response);
+    .then(() => {
       setCards((cards) => cards.filter((c) => c._id === card._id ? '' : c));
     })
     .catch((err) => {console.log(err)});
@@ -72,7 +69,6 @@ function App() {
   function handleUpdateUser({name, about}) {
     api.editProfileInfo(name, about)
     .then((response) => {
-      console.log(response);
       setCurrentUser(response);
       setEditProfilePopupOpen(false);
     })
@@ -91,7 +87,6 @@ function App() {
   function handleAddPlaceSubmit({name, link}) {
     api.createCard(name, link)
     .then((newCard) => {
-      console.log(newCard);
       setCards([newCard, ...cards]);
       setAddPlacePopupOpen(false);
     })
@@ -111,7 +106,6 @@ function App() {
   }
 
   function handleCardClick(card) {
-    console.log(card.link);
     setSelectedCard({
       cardLink: card.link,
       cardName: card.name,

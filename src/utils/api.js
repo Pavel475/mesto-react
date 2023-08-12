@@ -75,7 +75,6 @@ class Api {
     }
 
     updateAvatar(newAvatar) {
-        console.log(newAvatar);
         return fetch(this.url + '/users/me/avatar ', {
             method: 'PATCH',
             headers: this._headers,

@@ -11,9 +11,11 @@ function EditAvatarPopup(props) {
     });
   }
 
-  if (props.isOpen === true) {
-    avatarInput.current.value = '';
-  }
+  React.useEffect(() => {
+    if (props.isOpen === true) {
+      avatarInput.current.value = '';
+    }
+  }, [props.isOpen]);
 
   return (
     <PopupWithForm
